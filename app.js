@@ -15,7 +15,7 @@ app.set("views", path.join(__dirname + "/views"))
 
 const buttons = {
   login: `<button type="button" class="btn btn-outline-dark me-2" onclick="location.href='/login'">Entrar</button>`,
-  cadastro: `<button type="button" class="btn btn-warning" onclick="location.href='/cadastrar'">Cadastrar</button>`
+  cadastro: `<button type="button" class="btn btn-warning" onclick="location.href='/cadastro'">Cadastrar</button>`
 }
 
 app.get('/', async(req, res)=>{
@@ -31,7 +31,7 @@ app.get('/', async(req, res)=>{
     res.render('home', {
       message: `
       <button type="button" class="btn btn-outline-dark me-2" onclick="location.href='/login'">Entrar</button>
-      <button type="button" class="btn btn-warning" onclick="location.href='/cadastrar'">Cadastrar</button>
+      <button type="button" class="btn btn-warning" onclick="location.href='/cadastro'">Cadastrar</button>
       `,
       ip
     })
@@ -56,7 +56,7 @@ app.get('/login', async(req, res, next)=>{
     res.render('login', {
       message: `
       <button type="button" class="btn btn-outline-dark me-2" onclick="location.href='/login'">Entrar</button>
-      <button type="button" class="btn btn-warning" onclick="location.href='/cadastrar'">Cadastrar</button>
+      <button type="button" class="btn btn-warning" onclick="location.href='/cadastro'">Cadastrar</button>
       `
     })
   }else{
@@ -76,7 +76,7 @@ app.post('/login', async(req, res)=>{
     res.render('login', {
       message: `
       <button type="button" class="btn btn-outline-dark me-2" onclick="location.href='/login'">Entrar</button>
-      <button type="button" class="btn btn-warning" onclick="location.href='/cadastrar'">Cadastrar</button>
+      <button type="button" class="btn btn-warning" onclick="location.href='/cadastro'">Cadastrar</button>
       `,
       notify: `
       <div class="alert alert-danger text-center" role="alert">
@@ -90,6 +90,26 @@ app.post('/login', async(req, res)=>{
     await user.update({
       ip: ip.ip
     })
+    res.redirect('/')
+  }
+})
+app.get('/cadastro', async(req, res)=>{
+  const ip = await queryIp()
+  const user = await User.findOne(
+    {
+      where: {
+        ip: ip.ip
+      }
+    }
+  )
+  if(user === null){
+    res.render('cadastro', {
+      message: `
+      <button type="button" class="btn btn-outline-dark me-2" onclick="location.href='/login'">Entrar</button>
+      <button type="button" class="btn btn-warning" onclick="location.href='/cadastro'">Cadastrar</button>
+      `
+    })
+  }else{
     res.redirect('/')
   }
 })
