@@ -33,7 +33,7 @@ const User = sequelize.define("user", {
     allowNull: false,
   },
   ip: {
-    type: DataTypes.INTEGER,
+    type: DataTypes.STRING,
     allowNull: false,
   }
 });
