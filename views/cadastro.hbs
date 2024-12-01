@@ -4,6 +4,7 @@
     <div class="mb-3">
       <label for="nome" class="form-label">Nome <strong class="text-danger">*</strong></label>
       <input type="text" class="form-control" id="nome" name="nome" placeholder="ex: josecipriano" required>
+      <div id="verifyName"></div>
     </div>
     <div class="mb-3">
       <label for="email" class="form-label">Email <strong class="text-danger">*</strong></label>
@@ -12,10 +13,38 @@
     <div class="mb-3">
       <label for="senha" class="form-label">Senha <strong class="text-danger">*</strong></label>
       <input type="password" class="form-control" id="senha" name="senha" placeholder="********" required>
-      <div class="text-muted"><small>A senha deve ter no minimo 8 caracteres.</small></div>
+      {{!-- <div class="text-muted"><small>A senha deve ter no minimo 8 caracteres.</small></div> --}}
+      <small id="verifyPassword"></small>
     </div>
     <div class="mb-3 d-grid gap-2">
       <button type="submit" class="btn btn-success">Cadastrar</button>
     </div>
   </form>
 </div>
+
+
+<script>
+'use strict'
+  const senhaInput = document.getElementById('senha');
+  const verifyPassword = document.getElementById('verifyPassword');
+  
+  senhaInput.addEventListener('input', function() {
+    const senha = senhaInput.value;
+    let errorMessage = '';
+    
+    if (senha.length < 8) {
+      errorMessage = 'A senha deve ter no minimo 8 caracteres.';
+    } else {
+      errorMessage = '';
+    }
+    
+    verifyPassword.textContent = errorMessage;
+    verifyPassword.classList.remove('text-success', 'text-danger');
+    
+    if (errorMessage) {
+      verifyPassword.classList.add('text-danger');
+    } else {
+      verifyPassword.classList.add('text-success');
+    }
+  })
+</script>
