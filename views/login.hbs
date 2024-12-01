@@ -1,0 +1,19 @@
+<div class="container">
+  <h2>
+    Login
+  </h2>
+  {{{notify}}}
+  <form action="/login" method="post" class="container">
+    <div class="mb-3">
+      <label for="email" class="form-label">Email <strong class="text-danger">*</strong></label>
+      <input type="email" class="form-control" id="email" name="email" required>
+    </div>
+    <div class="mb-3">
+      <label for="senha" class="form-label">Senha <strong class="text-danger">*</strong></label>
+      <input type="password" class="form-control" id="senha" name="senha" required>
+    </div>
+    <div class="mb-3 d-grid gap-2">
+      <button type="submit" class="btn btn-success">Login</button>
+    </div>
+  </form>
+</div>
