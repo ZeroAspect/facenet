@@ -1,0 +1,21 @@
+<div class="container py-4">
+  <h2>Cadastro</h2>
+  <form action="/cadastro" method="post" class="container">
+    <div class="mb-3">
+      <label for="nome" class="form-label">Nome <strong class="text-danger">*</strong></label>
+      <input type="text" class="form-control" id="nome" name="nome" placeholder="ex: josecipriano" required>
+    </div>
+    <div class="mb-3">
+      <label for="email" class="form-label">Email <strong class="text-danger">*</strong></label>
+      <input type="email" class="form-control" id="email" name="email" placeholder="exemplo@email.com" required>
+    </div>
+    <div class="mb-3">
+      <label for="senha" class="form-label">Senha <strong class="text-danger">*</strong></label>
+      <input type="password" class="form-control" id="senha" name="senha" placeholder="********" required>
+      <div class="text-muted"><small>A senha deve ter no minimo 8 caracteres.</small></div>
+    </div>
+    <div class="mb-3 d-grid gap-2">
+      <button type="submit" class="btn btn-success">Cadastrar</button>
+    </div>
+  </form>
+</div>
