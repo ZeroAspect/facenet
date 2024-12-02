@@ -1,0 +1,37 @@
+<div class="container">
+  {{#each user}}
+    <div class="mb-3 d-flex justify-content-between">
+      <h2>
+        {{nome}} - <span class="text-muted" title="Status de relacionamento: {{status}}">{{status}}</span>
+      </h2>
+    </div>
+    
+    <ul class="nav nav-tabs mb-1">
+      <li class="nav-item">
+        <a href="/{{nome}}" class="nav-link active" aria-current="page">Perfil</a>
+      </li>
+      <li class="nav-item">
+        <a href="/{{nome}}/conteudos" class="nav-link link-body-emphasis">Publicações</a>
+      </li>
+      <li class="nav-item">
+        <a href="/{{nome}}/comentarios" class="nav-link link-body-emphasis">Comentarios</a>
+      </li>
+    </ul>
+    <small class="text-success">Ativo desde {{createdAt}}</small><br>
+    <small class="text-warning">Atualizado em {{updatedAt}}</small>
+    <br><br>
+    {{!-- <div class="mb-1 d-flex justify-content-between">
+      <b>Descrição</b>
+    </div> --}}
+    <div class="card">
+      <div class="card-header">
+        <b>Descrição</b>
+      </div>
+      <div class="card-body">
+        <div class="p-2">
+          {{{biografia}}}
+        </div>
+      </div>
+    </div>
+  {{/each}}
+</div>
