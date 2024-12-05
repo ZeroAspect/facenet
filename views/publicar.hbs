@@ -1,0 +1,23 @@
+<div class="container">
+  <h2>
+    Publicar novo conteudo
+  </h2>
+  <form action="/publicar" method="post">
+    <div class="mb-3">
+      <label for="titulo" class="form-label">Título <strong>*</strong></label>
+      <input type="text" class="form-control" id="titulo" name="titulo" placeholder="ex. Ferramentas que vão mudar 100% o seu layout do VScode" required>
+    </div>
+    <div class="card mb-3">
+      <label for="conteudo" class="form-label card-header">Conteúdo <strong>*</strong></label>
+      <textarea class="form-control card-body" id="conteudo" name="conteudo" cols="10" rows="3" style="height: 150px;" required></textarea>
+    </div>
+    <div class="mb-3">
+      <label for="tags" class="form-label">Fonte</label>
+      <input type="url" class="form-control" id="fonte" name="fonte" placeholder="https://exemplo.site/url">
+    </div>
+    <div class="mb-3 text-end">
+      <button type="button" class="btn" onclick="location.href='/'">Cancelar</button>
+      <button type="submit" class="btn btn-success">Publicar</button>
+    </div>
+  </form>
+</div>
